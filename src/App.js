@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Col, Container, Form, FormText, Input, Row} from "reactstrap";
 import {addDays, format} from "date-fns"
 import DatePicker from 'react-date-picker/dist/entry.nostyle';
+import BG from './bg.jpg';
 import "./App.css";
 
 class App extends React.Component {
@@ -83,92 +84,96 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container fluid>
-        <Form onSubmit={this.handleOnSubmit}>
-          <Row className="justify-content-center align-items-start">
-            <Col className="Counters" sm={12} md={6} lg={4} xl={2}>
-              <span onClick={() => this.handleOnAdd('adults')}>+</span>
-              <div style={{marginLeft: 10, marginRight: 10, width: '100%'}}>
-                <Input
-                  readOnly
-                  type="number"
-                  name="adults"
-                  value={this.state.adults}
-                  style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
-                />
-                <FormText color="muted" className="TextMuted">
-                  Adultos
-                </FormText>
-              </div>
-              <span onClick={() => this.handleOnSubtract('adults')}>-</span>
-            </Col>
-            <Col className="Counters" sm={12} md={6} lg={4} xl={2}>
-              <span onClick={() => this.handleOnAdd('kids')}>+</span>
-              <div style={{marginLeft: 10, marginRight: 10, width: '100%'}}>
-                <Input
-                  readOnly
-                  type="number"
-                  name="kids"
-                  value={this.state.kids}
-                  style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
-                />
-                <FormText color="muted" className="TextMuted">
-                  Niños
-                </FormText>
-              </div>
-              <span onClick={() => this.handleOnSubtract('kids')}>-</span>
-            </Col>
-            <Col sm={12} md={6} lg={4} xl={2}>
-              <DatePicker
-                style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
-                onChange={e => this.handleOnCheckIn(e)}
-                minDate={addDays(new Date(), 1)}
-                value={this.state.check_in}
-              />
-              <FormText color="muted" className="TextMuted">
-                Fecha de Check In
-              </FormText>
-            </Col>
-            <Col sm={12} md={6} lg={4} xl={2}>
-              <DatePicker
-                style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
-                onChange={e => this.handleOnCheckOut(e)}
-                minDate={addDays(this.state.check_in, 1)}
-                value={this.state.check_out}
-              />
-              <FormText color="muted" className="TextMuted">
-                Fecha de Check Out
-              </FormText>
-            </Col>
-            <Col sm={12} md={6} lg={4} xl={2}>
-              <Input
-                type="text"
-                name="promo_code"
-                value={this.state.promo_code}
-                onChange={this.handleOnChange}
-                style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
-              />
-              <FormText color="muted" className="TextMuted">
-                Código promocional
-              </FormText>
-            </Col>
-            <Col sm={12} md={6} lg={12} xl={2}>
-              <Button
-                block
-                color="warning"
-                style={{
-                  fontFamily: 'Montserrat',
-                  fontWeight: 'bold',
-                  marginTop: 5,
-                  color: '#212121',
-                }}
-              >
-                Buscar
-              </Button>
-            </Col>
-          </Row>
-        </Form>
-      </Container>
+      <div style={{backgroundImage: `url(${BG})`}} className="Root">
+        <div className="Main">
+          <Container fluid>
+            <Form onSubmit={this.handleOnSubmit}>
+              <Row className="justify-content-center align-items-start">
+                <Col className="Counters" sm={12} md={6} lg={4} xl={2}>
+                  <span onClick={() => this.handleOnAdd('adults')}>+</span>
+                  <div style={{marginLeft: 10, marginRight: 10, width: '100%'}}>
+                    <Input
+                      readOnly
+                      type="number"
+                      name="adults"
+                      value={this.state.adults}
+                      style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
+                    />
+                    <FormText color="muted" className="TextMuted">
+                      Adultos
+                    </FormText>
+                  </div>
+                  <span onClick={() => this.handleOnSubtract('adults')}>-</span>
+                </Col>
+                <Col className="Counters" sm={12} md={6} lg={4} xl={2}>
+                  <span onClick={() => this.handleOnAdd('kids')}>+</span>
+                  <div style={{marginLeft: 10, marginRight: 10, width: '100%'}}>
+                    <Input
+                      readOnly
+                      type="number"
+                      name="kids"
+                      value={this.state.kids}
+                      style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
+                    />
+                    <FormText color="muted" className="TextMuted">
+                      Niños
+                    </FormText>
+                  </div>
+                  <span onClick={() => this.handleOnSubtract('kids')}>-</span>
+                </Col>
+                <Col sm={12} md={6} lg={4} xl={2}>
+                  <DatePicker
+                    style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
+                    onChange={e => this.handleOnCheckIn(e)}
+                    minDate={addDays(new Date(), 1)}
+                    value={this.state.check_in}
+                  />
+                  <FormText color="muted" className="TextMuted">
+                    Fecha de Check In
+                  </FormText>
+                </Col>
+                <Col sm={12} md={6} lg={4} xl={2}>
+                  <DatePicker
+                    style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
+                    onChange={e => this.handleOnCheckOut(e)}
+                    minDate={addDays(this.state.check_in, 1)}
+                    value={this.state.check_out}
+                  />
+                  <FormText color="muted" className="TextMuted">
+                    Fecha de Check Out
+                  </FormText>
+                </Col>
+                <Col sm={12} md={6} lg={4} xl={2}>
+                  <Input
+                    type="text"
+                    name="promo_code"
+                    value={this.state.promo_code}
+                    onChange={this.handleOnChange}
+                    style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
+                  />
+                  <FormText color="muted" className="TextMuted">
+                    Código promocional
+                  </FormText>
+                </Col>
+                <Col sm={12} md={6} lg={12} xl={2}>
+                  <Button
+                    block
+                    color="warning"
+                    style={{
+                      fontFamily: 'Montserrat',
+                      fontWeight: 'bold',
+                      marginTop: 5,
+                      color: '#212121',
+                    }}
+                  >
+                    Buscar
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Container>
+        </div>
+      </div>
     );
   }
 }
