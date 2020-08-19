@@ -117,7 +117,7 @@ class App extends React.Component {
                 <DatePicker
                   style={{fontFamily: 'Montserrat', fontWeight: 'bold'}}
                   onChange={e => this.handleOnCheckIn(e)}
-                  minDate={addDays(new Date(), 1)}
+                  minDate={new Date()}
                   value={this.state.check_in}
                 />
                 <FormText color="muted" className="TextMuted">
