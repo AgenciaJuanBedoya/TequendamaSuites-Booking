@@ -12,8 +12,8 @@ class App extends React.Component {
     this.state = {
       adults: 1,
       kids: 0,
-      check_in: addDays(new Date(), 1),
-      check_out: addDays(new Date(), 2),
+      check_in: new Date(),
+      check_out: addDays(new Date(), 1),
       promo_code: '',
     };
   }
